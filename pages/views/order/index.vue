@@ -36,8 +36,8 @@
 				<uni-collapse-item v-for="(item, index) in usingList" :key="index"
 					:title="item.type === 1 ? `房名：${item.name}` : `桌名：${item.name}`" :thumb="
             item.type === 1
-              ? require('@/static/images/order/order-icon-mj.png')
-              : require('@/static/images/order/order-icon-tq.png')
+              ? '@/static/images/order/order-icon-mj.png'
+              : '@/static/images/order/order-icon-tq.png'
           ">
 					<view class="content">
 						<view style="letter-spacing: 1rpx">起止时间：{{ item.beginTime }} - {{ item.endTime }}</view>
@@ -60,8 +60,8 @@
 				<uni-collapse-item v-for="(item, index) in historyList" :key="index"
 					:title="item.type === 1 ? `房名：${item.name}` : `桌名：${item.name}`" :thumb="
             item.type === 1
-              ? require('@/static/images/order/order-icon-mj.png')
-              : require('@/static/images/order/order-icon-tq.png')
+              ? '/static/images/order/order-icon-mj.png'
+              : '/static/images/order/order-icon-tq.png'
           ">
 					<view class="content">
 						<view style="letter-spacing: 1rpx">起止时间：{{ item.beginTime }} - {{ item.endTime }}</view>
@@ -176,7 +176,7 @@
 <style scoped>
 	.order {
 		width: 100%;
-		height: calc(100vh - 100rpx);
+		height: 100vh;
 		overflow-y: auto;
 		background-color: #f4f4f4;
 	}
@@ -185,7 +185,7 @@
 		width: 100%;
 		height: 300rpx;
 		background-color: #42b983;
-		padding: 20rpx;
+		padding-top: 150rpx;
 	}
 
 	.user-card {
@@ -195,11 +195,12 @@
 		border-radius: 20rpx;
 		position: relative;
 		top: 20rpx;
-		padding: 40rpx;
+		padding-top: 20rpx;
 	}
 
 	.avatar-box {
 		display: flex;
+		margin: 0 20rpx;
 	}
 
 	.avatar {
@@ -237,7 +238,7 @@
 	.balance-box {
 		display: flex;
 		justify-content: space-between;
-		margin-top: 30rpx;
+		margin: 30rpx 30rpx 0 30rpx;
 	}
 
 	.box-item {

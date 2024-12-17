@@ -1,11 +1,14 @@
 <template>
 	<view class="home-box">
-		<!-- 顶部背景图 为了留白兼容苹果的刘海屏灵动岛等 -->
-		<image class="top-bg" mode="aspectFill" src="@/static/images/home/top-bg.png"></image>
+		<view class="home-top">
+			<!-- 顶部背景图 为了留白兼容苹果的刘海屏灵动岛等 -->
+			<image class="top-bg" mode="center" src="@/static/images/home/top-bg.png"></image>
+			<view class="home-title">门店详情</view>
+		</view>
+
 		<view class="main-box">
-			<view class="title">门店详情</view>
 			<!-- 顶部滚动通知 -->
-			<uni-notice-bar show-icon scrollable text="自助桌球棋牌24小时营业，请提前预约，合理规划出行，遵纪守法，禁止赌博。" />
+			<uni-notice-bar class="notice-bar" show-icon scrollable text="自助桌球棋牌24小时营业，请提前预约，合理规划出行，遵纪守法，禁止赌博。" />
 			<!-- 轮播简介图 -->
 			<swiper class="swiper-box" autoplay :interval="interval" @change="change" :current="swiperDotIndex">
 				<swiper-item v-for="(item, index) in bannerInfo" :key="index">
@@ -63,7 +66,7 @@
 
 		<view class="enter-room">
 			<view class="jm-box">
-				<image class="jm-bg" mode="aspectFill" src="@/static/images/home/jm.png"></image>
+				<image class="jm-bg" mode="widthFix" src="@/static/images/home/jm.png"></image>
 			</view>
 		</view>
 	</view>
@@ -158,27 +161,38 @@
 <style scoped>
 	.home-box {
 		background-color: #eef9f5;
-		height: calc(100vh - 100rpx);
+		height: 100vh;
 		overflow-y: auto;
 	}
-
-	.top-bg {
+	
+	.home-top {
 		width: 100%;
-		height: 150rpx;
-	}
-
-	.main-box {
+		height: 170rpx;
 		position: relative;
-		top: -50rpx;
 	}
-
-	.title {
+	
+	.home-title {
 		width: 100%;
 		text-align: center;
 		color: #fff;
 		font-weight: bolder;
 		font-size: 40rpx;
-		margin-bottom: 10rpx;
+		position: absolute;
+		bottom: 30rpx;
+	}
+
+	.top-bg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.main-box {
+		position: relative;
+		/* top: -90rpx; */
+	}
+
+	.notice-bar {
+		margin-bottom: 0rpx !important;
 	}
 
 	.swiper-box {
@@ -232,27 +246,30 @@
 	}
 
 	.common-funciton {
+		padding: 0 40rpx;
 		margin-top: 40rpx;
-		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		padding: 0 30rpx;
 	}
 
 	.func-item {
-		width: 100rpx;
-		height: 130rpx;
+		width: 120rpx;
+		height: 140rpx;
 		border-radius: 20rpx;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.fun-item-bg {
 		width: 100rpx;
 		height: 100rpx;
-		border-radius: 20rpx;
+		border-radius: 15rpx;
 	}
 
 	.func-item-title {
-		width: 100rpx;
+		width: 120rpx;
 		font-size: 26rpx;
 		height: 30rpx;
 		line-height: 30rpx;
@@ -263,12 +280,12 @@
 	.enter-room {
 		width: 100%;
 		position: fixed;
-		bottom: 100rpx;
+		bottom: 0;
 	}
 
 	.jm-box {
 		width: 100%;
-		height: 200rpx;
+		height: 100rpx;
 		border-radius: 20rpx;
 		box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
 	}
@@ -280,6 +297,6 @@
 	}
 
 	.btn-box {
-		margin-top: 40rpx;
+		margin: 50rpx 30rpx 0 30rpx;
 	}
 </style>

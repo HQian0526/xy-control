@@ -1,9 +1,11 @@
 <template>
 	<view class="book">
-		<!-- 顶部背景图 为了留白兼容苹果的刘海屏灵动岛等 -->
-		<image class="top-bg" mode="aspectFill" src="@/static/images/book/top-bg.png"></image>
+		<view class="book-top">
+			<!-- 顶部背景图 为了留白兼容苹果的刘海屏灵动岛等 -->
+			<image class="top-bg" mode="center" src="@/static/images/book/top-bg.png"></image>
+			<view class="book-title">预定</view>
+		</view>
 		<view class="main-box">
-			<view class="title">预定</view>
 			<uni-segmented-control :current="current" :values="['麻将', '桌球']" style-type="button" active-color="#35956a"
 				in-active-color="#fff" @clickItem="onClickItem" />
 			<view>
@@ -11,7 +13,7 @@
 					<uni-card padding="0" spacing="0">
 						<template v-slot:cover>
 							<view class="custom-cover">
-								<image class="cover-image" mode="aspectFill" :src="item.url">
+								<image class="cover-image" mode="center" :src="item.url">
 								</image>
 								<view class="cover-content">
 									<view class="float-name">
@@ -205,27 +207,34 @@
 <style scoped>
 	.book {
 		overflow-y: auto;
-		height: calc(100vh - 100rpx);
+		height: 100vh;
 		background-color: #eef9f5;
 	}
-
-	.top-bg {
+	
+	.book-top {
 		width: 100%;
-		height: 180rpx;
-	}
-
-	.main-box {
+		height: 170rpx;
 		position: relative;
-		top: -65rpx;
 	}
-
-	.title {
+	
+	.book-title {
 		width: 100%;
 		text-align: center;
 		color: #fff;
 		font-weight: bolder;
 		font-size: 40rpx;
-		margin-bottom: 10rpx;
+		position: absolute;
+		bottom: 30rpx;
+	}
+
+	.top-bg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.main-box {
+		position: relative;
+		/* top: -65rpx; */
 	}
 
 	.card-box {
@@ -255,7 +264,7 @@
 	}
 
 	.cover-image {
-		flex: 1;
+		width: 100%;
 		height: 300rpx;
 	}
 
@@ -288,7 +297,7 @@
 		width: 165rpx;
 		height: 130rpx;
 		position: absolute;
-		bottom: 5rpx;
+		bottom: 20rpx;
 		right: 60rpx;
 	}
 </style>
